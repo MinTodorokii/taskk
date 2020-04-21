@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            function goBack() {
+              window.history.back()
+            }
+        </script>
+
         <meta charset="utf-8">
         <title>Project: Scene change</title>
         <style>
@@ -9,39 +15,45 @@
             top: 210px;
             left: 378px;
         }
-        .dot {
-                border-radius: 10px;
-                background: black;
-                position: absolute;
-                width: 10px;
-                height: 10px;
-        }
+            
         </style>
+       
     </head>
     <body>
 
-    <img src="https://www.kasandbox.org/programming-images/landscapes/beach-with-palm-trees.png">
+        <button onclick="myFunction()">Try it</button>
+            <p id="demo"></p>
+  
 
-    <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers" value="PLAY"  onclick="play()" >
-    <audio id="audio" src="https://www.youtube.com/watch?v=2AcMs4Vxin4" ></audio>
+       
+    <img src="https://www.kasandbox.org/programming-images/landscapes/beach-with-palm-trees.png" value="PLAY"  onclick="play()">
+    <audio id="audio" src="F:\sound.mp3" ></audio>
+
+
+    <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers" onmouseover="this.src='MIŠKO/yoongi.png'" onmouseout="this.src='https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png'">
+   
+     
+  
+   
     
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        
-              $("leafers).on("click", function(event) {
-        var $dot = $("<div></div>");
-        $dot.addClass("dot");
-        $dot.css("position", "absolute");
-        $dot.css("top", event.pageY + "px");
-        $dot.css("left", event.pageX + "px");
-        $dot.appendTo("body");
-    });
-    function play(){
-    var audio = document.getElementById("audio");
-    audio.play(); 
-    }
-    </script>
-    </body>
-</html>
+        $("#leafers").on("click", function(event) {
+            document.getElementById("leafers").width = "300";
+  });
+         </script>
+        <script>
+            function myFunction() {
+              var txt;
+              var person = prompt("Please enter your name:", "Harry Potter");
+              if (person == null || person == "") {
+                txt = "User cancelled the prompt.";
+              } else {
+                txt = "Hello " + person + "! How are you today?";
+              }
+              document.getElementById("demo").innerHTML = txt;
+            }
+            </script>
     
-  
+</html>
